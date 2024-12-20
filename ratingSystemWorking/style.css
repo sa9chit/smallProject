@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+ html body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    background-color: blue;
+ }
+
+ .Rating-container{
+height: 200px;
+width: 550px;
+background-color: gray;
+position: relative;
+justify-content: center;
+align-items: center;
+ }
+
+ .emoji-Container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+   transform: translate(-50% , -50% );
+   width: 0;
+   font-size: 50px;
+   background-color: blue;
+   height: 50px;
+   width: 50px;
+   display: flex;
+   border-radius: 50%;
+   overflow: hidden;
+ }
+
+.far{
+    transform: translateX(-0%);
+transition: all 0.1s;
+    
+}
+.star-COntainer{
+    position: absolute;
+    left: 50%;
+    font-size: 40px;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+  .active{
+   color: rgb(255, 0, 0);
+
+}
+
+.change{
+    height: 40px;
+    width: 40px;
+    background-color: black;
+    
+}
