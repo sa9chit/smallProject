@@ -1,0 +1,62 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.main{
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    position: relative;
+    background-color: rgba(99, 93, 93, 0.187);
+}
+.record{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    gap: 80px;
+    text-align: center;
+    transform: translate(-30%,-50%);
+
+}
+#CompScore{
+    font-size: 50px;
+
+}
+#youScore{
+    font-size: 50px;
+}
+.container{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-30%,-50%);
+}
+.hi{
+    height: 60px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.pick{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-20%,-20%);
+    background-color: green;
+    padding: 9px;
+    border-radius: 10px;
+    color: white;
+}
+#winner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgb(0, 0, 0);
+    transform: translate(70%,-50%);
+}
