@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      form {
+        width: 90svw;
+        margin: auto;
+        background-color: aqua;
+        height: 500px;
+        border-radius: 6px;
+        text-align: center;
+      }
+      form label {
+        display: block;
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .main {
+        width: 100%;
+        display: flex;
+        margin: auto;
+      }
+      .item {
+        width: 200px;
+        background-color: green;
+        flex-wrap: wrap;
+        flex-basis: 20%;
+        margin: 1%;
+        padding: 5px;
+        color: white;
+        position: relative;
+        border-radius: 3px;
+      }
+      .item .ti {
+        position: absolute;
+        right: 6%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h2>Enquiry</h2>
+      <label for="name">Name</label>
+      <input type="text" name="userName" required />
+      <label for="gmail">Gmail</label>
+      <input type="text" name="gmail" required />
+      <label for="phone">Contact</label>
+      <input type="text" name="phone" required />
+      <label for="name">message</label>
+      <input type="text" name="message" required />
+      <div class="button">
+        <button class="btn">Submit</button>
+      </div>
+    </form>
+
+    <div class="main"></div>
+  </body>
+  <script>
+    let btn = document.querySelector("form");
+    let main = document.querySelector(".main");
+
+    btn.addEventListener("submit", (event) => {
+      let userName = event.target.userName.value;
+      let email = event.target.gmail.value;
+      let Contact = event.target.phone.value;
+      let message = event.target.message.value;
+
+      let data = JSON.parse(localStorage.getItem("userDetail")) ?? [];
+
+      data.push({
+        userName: userName,
+        email: email,
+        Contact: Contact,
+        message: message,
+      });
+
+      localStorage.setItem("userDetail", JSON.stringify(data));
+
+      event.preventDefault();
+      event.target.reset();
+      display();
+    });
+
+    let display = () => {
+      let data = JSON.parse(localStorage.getItem("userDetail")) ?? [];
+      let finalData = "";
+      data.forEach((element, index) => {
+        finalData += `<div class="item">
+        <span class = "ti" onclick = "removeItem(${index})">&times</span>
+        <h3>Name</h3>
+        <span class="name">${element.userName}</span>
+        <h3>Gmail</h3>
+        <span class="gmail">${element.email}</span>
+        <h3>Contact</h3>
+        <span class="contact">${element.Contact}</span>
+        <h3>message</h3>
+        <span class="message">${element.message}</span>
+      </div>`;
+      });
+
+      main.innerHTML = finalData;
+    };
+
+    let removeItem = (index) => {
+      let data = JSON.parse(localStorage.getItem("userDetail")) ?? [];
+      data.splice(index, 1);
+
+      localStorage.setItem("userDetail", JSON.stringify(data));
+      display();
+    };
+
+    display();
+    // localStorage.removeItem("userDetail")
+  </script>
+</html>
